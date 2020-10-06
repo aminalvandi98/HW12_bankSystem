@@ -19,7 +19,6 @@ public abstract class BaseRepository<Entity, ID extends Number> {
             entityManager.getTransaction().rollback();
             System.out.println(exception.getMessage());
         }
-        entityManager.close();
         return entity;
     }
 
@@ -34,7 +33,6 @@ public abstract class BaseRepository<Entity, ID extends Number> {
             entityManager.getTransaction().rollback();
             System.out.println(exception.getMessage());
         }
-        entityManager.close();
         return entityList;
     }
 
@@ -48,7 +46,6 @@ public abstract class BaseRepository<Entity, ID extends Number> {
             entityManager.getTransaction().rollback();
             System.out.println(exception.getMessage());
         }
-        entityManager.close();
         return entity;
     }
 
@@ -62,7 +59,6 @@ public abstract class BaseRepository<Entity, ID extends Number> {
             entityManager.getTransaction().rollback();
             System.out.println(exception.getMessage());
         }
-        entityManager.close();
         return merge;
     }
 
@@ -75,7 +71,7 @@ public abstract class BaseRepository<Entity, ID extends Number> {
             entityManager.getTransaction().rollback();
             System.out.println(exception.getMessage());
         }
-        entityManager.close();
+
     }
 
     public void deleteByID(ID id) throws Exception {

@@ -12,6 +12,12 @@ public class Customer {
     @Column(unique = true, nullable = false, updatable = false)
     private Long id;
 
+    @Column(name = "user_name",nullable = false)
+    private String userName;
+
+    @Column(name = "password",nullable = false)
+    private String password;
+
     @Column(name = "first_name",nullable = false)
     private String firstName;
 
@@ -19,12 +25,12 @@ public class Customer {
     private String lastName;
 
     @Column(name = "national_code",unique = true,nullable = false)
-    private Long nationalCode;
+    private String nationalCode;
 
     @Column(name = "birth_date")
     private Date birthDate;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     private List<Account> accountList;
 
 
@@ -52,11 +58,11 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public Long getNationalCode() {
+    public String getNationalCode() {
         return nationalCode;
     }
 
-    public void setNationalCode(Long nationalCode) {
+    public void setNationalCode(String nationalCode) {
         this.nationalCode = nationalCode;
     }
 
@@ -74,5 +80,21 @@ public class Customer {
 
     public void setAccountList(List<Account> accountList) {
         this.accountList = accountList;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

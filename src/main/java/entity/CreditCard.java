@@ -18,7 +18,7 @@ public class CreditCard {
     private Integer CVV2;
 
     @Column(name = "expiration_date",nullable = false)
-    private Date expirationDate;
+    private String expirationDate;
 
     @Column(name = "second_password")
     private String secondPass;
@@ -50,11 +50,11 @@ public class CreditCard {
         this.CVV2 = CVV2;
     }
 
-    public Date getExpirationDate() {
+    public String getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
     }
 

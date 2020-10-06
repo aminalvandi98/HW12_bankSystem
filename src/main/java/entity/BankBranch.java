@@ -1,6 +1,9 @@
 package entity;
 
+import org.hibernate.annotations.JoinColumnOrFormula;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "bank_branch")
@@ -19,6 +22,9 @@ public class BankBranch {
     @OneToOne
     @JoinColumn(name = "head_of_branch")
     private Employee headOfBranch;
+
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<Employee> employees;
 
     public Long getId() {
         return id;
@@ -51,4 +57,24 @@ public class BankBranch {
     public void setHeadOfBranch(Employee headOfBranch) {
         this.headOfBranch = headOfBranch;
     }
+
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
+    @Override
+    public String toString() {
+        return "BankBranch{" +
+                "Branch Code=" + id +
+                ", branchName='" + branchName + '\'' +
+                ", address='" + address + '\'' +
+                ", headOfBranch=" + headOfBranch +
+                '}';
+    }
+
 }

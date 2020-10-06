@@ -14,7 +14,7 @@ public class Account {
     @Column(name = "account_number", unique = true, nullable = false)
     private Long accountNumber;
 
-    @Column(name = "status")
+    @Column(name = "status",columnDefinition = "TINYINT")
     private Boolean status;
 
     @Column(name = "account_balance")
@@ -28,11 +28,11 @@ public class Account {
     @JoinColumn(name = "fk_bank_branch")
     private BankBranch bankBranch;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_customer")
     private Customer customer;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_transactions")
     private List<Transaction> transactionList;
 
@@ -98,5 +98,15 @@ public class Account {
 
     public void setTransactionList(List<Transaction> transactionList) {
         this.transactionList = transactionList;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "ID=" + id +
+                ", accountNumber=" + accountNumber +
+                ", status=" + status +
+                ", accountBalance=" + accountBalance +
+                '}';
     }
 }
