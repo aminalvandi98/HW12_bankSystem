@@ -1,7 +1,7 @@
 package service;
 
 import entity.Customer;
-import repository.CustomerRepository;
+import repository.entity.CustomerRepository;
 
 public class CustomerService {
     private CustomerRepository customerRepository;

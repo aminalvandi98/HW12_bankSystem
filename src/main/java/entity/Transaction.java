@@ -7,7 +7,7 @@ import java.util.Date;
 @Table(name = "transaction")
 public class Transaction {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false, updatable = false)
     private Long id;
 
@@ -18,7 +18,11 @@ public class Transaction {
     private Date date;
 
     @Column(name = "amount")
-    private Long amount;
+    private String amount;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "fk_credit_card")
+    private CreditCard creditCard;
 
     public Long getId() {
         return id;
@@ -44,11 +48,30 @@ public class Transaction {
         this.date = date;
     }
 
-    public Long getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(Long amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
+    }
+
+    public CreditCard getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(CreditCard creditCard) {
+        this.creditCard = creditCard;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", status=" + (status == true ? "successful" : "unsuccessful") +
+                ", date=" + date +
+                ", amount='" + amount + '\'' +
+                ", creditCard=" + creditCard +
+                '}';
     }
 }

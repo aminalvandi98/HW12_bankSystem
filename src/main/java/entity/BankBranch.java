@@ -9,7 +9,7 @@ import java.util.List;
 @Table(name = "bank_branch")
 public class BankBranch {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false, updatable = false)
     private Long id;
 
@@ -57,7 +57,6 @@ public class BankBranch {
     public void setHeadOfBranch(Employee headOfBranch) {
         this.headOfBranch = headOfBranch;
     }
-
 
     public List<Employee> getEmployees() {
         return employees;

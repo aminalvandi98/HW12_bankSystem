@@ -1,6 +1,7 @@
-package repository;
+package repository.entity;
 
 import entity.BankBranch;
+import repository.base.BaseRepository;
 
 public class BankBranchRepository extends BaseRepository<BankBranch, Long> {
     private static BankBranchRepository bankBranchRepository;

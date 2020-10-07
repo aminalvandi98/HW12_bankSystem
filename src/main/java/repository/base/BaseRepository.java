@@ -1,4 +1,6 @@
-package repository;
+package repository.base;
+
+import repository.JPAUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

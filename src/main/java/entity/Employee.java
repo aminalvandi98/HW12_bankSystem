@@ -7,9 +7,15 @@ import java.util.Date;
 @Table(name = "employee")
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false, updatable = false)
     private Long id;
+
+    @Column(name = "user_name", nullable = false)
+    private String userName;
+
+    @Column(name = "password", nullable = false)
+    private String password;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -26,6 +32,10 @@ public class Employee {
     @OneToOne
     @JoinColumn(name = "direct_boss")
     private Employee directBoss;
+
+    @OneToOne
+    @JoinColumn(name = "employee_position")
+    private Position position;
 
     public Long getId() {
         return id;
@@ -73,5 +83,30 @@ public class Employee {
 
     public void setDirectBoss(Employee directBoss) {
         this.directBoss = directBoss;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName() {
+        this.userName = this.firstName + this.lastName + id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
     }
 }

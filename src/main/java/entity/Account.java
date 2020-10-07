@@ -7,7 +7,7 @@ import java.util.List;
 @Table(name = "account")
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false, updatable = false)
     private Long id;
 
@@ -16,9 +16,6 @@ public class Account {
 
     @Column(name = "status",columnDefinition = "TINYINT")
     private Boolean status;
-
-    @Column(name = "account_balance")
-    private Long accountBalance;
 
     @OneToOne
     @JoinColumn (name = "fk_credit_card")
@@ -32,9 +29,6 @@ public class Account {
     @JoinColumn(name = "fk_customer")
     private Customer customer;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "fk_transactions")
-    private List<Transaction> transactionList;
 
     public Long getId() {
         return id;
@@ -58,14 +52,6 @@ public class Account {
 
     public void setStatus(Boolean status) {
         this.status = status;
-    }
-
-    public Long getAccountBalance() {
-        return accountBalance;
-    }
-
-    public void setAccountBalance(Long accountBalance) {
-        this.accountBalance = accountBalance;
     }
 
     public CreditCard getCreditCard() {
@@ -92,21 +78,16 @@ public class Account {
         this.customer = customer;
     }
 
-    public List<Transaction> getTransactionList() {
-        return transactionList;
-    }
-
-    public void setTransactionList(List<Transaction> transactionList) {
-        this.transactionList = transactionList;
-    }
 
     @Override
     public String toString() {
         return "Account{" +
-                "ID=" + id +
+                "id=" + id +
                 ", accountNumber=" + accountNumber +
                 ", status=" + status +
-                ", accountBalance=" + accountBalance +
+                ", creditCard=" + creditCard +
+                ", bankBranch=" + bankBranch +
+                ", customer=" + customer +
                 '}';
     }
 }

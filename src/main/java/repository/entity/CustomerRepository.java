@@ -1,6 +1,7 @@
-package repository;
+package repository.entity;
 
 import entity.Customer;
+import repository.base.BaseRepository;
 
 import javax.persistence.TypedQuery;
 

@@ -2,12 +2,13 @@ package entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "credit_card")
 public class CreditCard {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false, updatable = false)
     private Long id;
 
@@ -25,6 +26,8 @@ public class CreditCard {
 
     @Column(name = "balance")
     private Long creditCardBalance;
+
+
 
     public Long getId() {
         return id;
@@ -73,4 +76,5 @@ public class CreditCard {
     public void setCreditCardBalance(Long creditCardBalance) {
         this.creditCardBalance = creditCardBalance;
     }
+
 }

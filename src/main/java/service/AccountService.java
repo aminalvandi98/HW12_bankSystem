@@ -2,9 +2,8 @@ package service;
 
 import entity.Account;
 import entity.BankBranch;
-import entity.CreditCard;
 import entity.Customer;
-import repository.AccountRepository;
+import repository.entity.AccountRepository;
 
 import java.util.List;
 import java.util.Random;
@@ -47,6 +46,10 @@ public class AccountService {
     }
     public void updateBalance(Account account){
         accountRepository.update(account);
+    }
+
+    public void delete(Long id) throws Exception {
+        accountRepository.deleteByID(id);
     }
 
 }

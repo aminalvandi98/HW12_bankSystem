@@ -1,7 +1,8 @@
-package repository;
+package repository.entity;
 
 import entity.Account;
 import entity.Customer;
+import repository.base.BaseRepository;
 
 import javax.persistence.TypedQuery;
 import java.util.ArrayList;

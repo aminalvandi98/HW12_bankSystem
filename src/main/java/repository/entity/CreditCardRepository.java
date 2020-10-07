@@ -1,6 +1,7 @@
-package repository;
+package repository.entity;
 
 import entity.CreditCard;
+import repository.base.BaseRepository;
 
 public class CreditCardRepository extends BaseRepository<CreditCard, Long> {
     private static CreditCardRepository creditCardRepository;

@@ -1,7 +1,7 @@
 package service;
 
 import entity.BankBranch;
-import repository.BankBranchRepository;
+import repository.entity.BankBranchRepository;
 
 import java.util.List;
 
