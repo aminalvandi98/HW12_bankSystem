@@ -12,13 +12,13 @@ public class CreditCard {
     @Column(unique = true, nullable = false, updatable = false)
     private Long id;
 
-    @Column(name = "credit_card_number",unique = true,nullable = false,length = 16)
+    @Column(name = "credit_card_number", unique = true, nullable = false, length = 16)
     private String creditCardNumber;
 
-    @Column(name = "cvv2",unique = true,nullable = false)
+    @Column(name = "cvv2", unique = true, nullable = false)
     private Integer CVV2;
 
-    @Column(name = "expiration_date",nullable = false)
+    @Column(name = "expiration_date", nullable = false)
     private String expirationDate;
 
     @Column(name = "second_password")
@@ -27,7 +27,8 @@ public class CreditCard {
     @Column(name = "balance")
     private Long creditCardBalance;
 
-
+    @OneToOne(mappedBy = "creditCard")
+    private Account account;
 
     public Long getId() {
         return id;
@@ -76,5 +77,27 @@ public class CreditCard {
     public void setCreditCardBalance(Long creditCardBalance) {
         this.creditCardBalance = creditCardBalance;
     }
+
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    @Override
+    public String toString() {
+        return "CreditCard{" +
+                "id=" + id +
+                ", creditCardNumber='" + creditCardNumber + '\'' +
+                ", CVV2=" + CVV2 +
+                ", expirationDate='" + expirationDate + '\'' +
+                ", secondPass='" + secondPass + '\'' +
+                ", creditCardBalance=" + creditCardBalance +
+                '}';
+    }
+
 
 }

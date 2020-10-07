@@ -1,15 +1,15 @@
 package controller.ui;
 
-import controller.menu.CustomerMenu;
+import controller.controller.CustomerController;
 import entity.Customer;
 
 import java.util.Scanner;
 
 public class CustomerUI {
-    private CustomerMenu customerMenu;
+    private CustomerController customerMenu;
 
     public CustomerUI() {
-        customerMenu = new CustomerMenu();
+        customerMenu = new CustomerController();
     }
 
     public void dashboard(Customer customer) throws Exception {
@@ -35,13 +35,13 @@ public class CustomerUI {
                     customerMenu.removeAccount(customer);
                     break;
                 case 4:
-                    //...
+                    customerMenu.cardToCard(customer);
                     break;
                 case 5:
-                    //...
+                    customerMenu.changeSecondPass(customer);
                     break;
                 case 6:
-                    //...
+                    customerMenu.viewTransaction(customer);
                     break;
                 case 7:
                     flag = false;

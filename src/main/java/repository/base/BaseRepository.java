@@ -10,7 +10,7 @@ import java.util.List;
 public abstract class BaseRepository<Entity, ID extends Number> {
     protected abstract Class<Entity> getEntityClass();
 
-    EntityManager entityManager = JPAUtil.getEntityManager();
+    protected EntityManager entityManager = JPAUtil.getEntityManager();
 
     public Entity insert(Entity entity) {
         try {

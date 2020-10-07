@@ -2,6 +2,7 @@ package entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Random;
 
 @Entity
 @Table(name = "employee")
@@ -30,12 +31,15 @@ public class Employee {
     private Date birthDate;
 
     @OneToOne
-    @JoinColumn(name = "direct_boss")
+    @JoinColumn(name = "direct_boss",nullable = true)
     private Employee directBoss;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "employee_position")
     private Position position;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private BankBranch bankBranch;
 
     public Long getId() {
         return id;
@@ -90,7 +94,7 @@ public class Employee {
     }
 
     public void setUserName() {
-        this.userName = this.firstName + this.lastName + id;
+        this.userName = this.firstName + this.lastName + new Random().nextInt(20);
     }
 
     public String getPassword() {
@@ -108,5 +112,13 @@ public class Employee {
 
     public void setPosition(Position position) {
         this.position = position;
+    }
+
+    public BankBranch getBankBranch() {
+        return bankBranch;
+    }
+
+    public void setBankBranch(BankBranch bankBranch) {
+        this.bankBranch = bankBranch;
     }
 }

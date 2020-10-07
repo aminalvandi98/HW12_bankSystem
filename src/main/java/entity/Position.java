@@ -20,4 +20,12 @@ public class Position {
     public void setAdministrativePosition(String administrativePosition) {
         this.administrativePosition = administrativePosition;
     }
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "id=" + id +
+                ", administrativePosition='" + administrativePosition + '\'' +
+                '}';
+    }
 }

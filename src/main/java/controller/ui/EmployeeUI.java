@@ -1,11 +1,17 @@
 package controller.ui;
 
+import controller.controller.BankController;
 import entity.Customer;
 import entity.Employee;
 
 import java.util.Scanner;
 
 public class EmployeeUI {
+    private BankController bankController;
+
+    public EmployeeUI() {
+        bankController = new BankController();
+    }
     public void dashboard(Employee employee) throws Exception {
         boolean flag = true;
          while (flag) {
@@ -16,10 +22,10 @@ public class EmployeeUI {
             int temp = new Scanner(System.in).nextInt();
             switch (temp) {
                 case 1:
-                    //...
+                    bankController.getInformationForCreateAccount();
                     break;
                 case 2:
-                    //...
+                    bankController.EODAccount();
                     break;
                 case 3:
                     flag = false;

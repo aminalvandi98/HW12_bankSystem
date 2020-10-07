@@ -1,6 +1,7 @@
 package repository.entity;
 
 import entity.Account;
+import entity.CreditCard;
 import entity.Customer;
 import repository.base.BaseRepository;
 
@@ -36,6 +37,7 @@ public class AccountRepository extends BaseRepository<Account, Long> {
         }
         return accountList;
     }
+
 
     @Override
     protected Class<Account> getEntityClass() {

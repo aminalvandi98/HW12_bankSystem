@@ -23,8 +23,6 @@ public class BankBranch {
     @JoinColumn(name = "head_of_branch")
     private Employee headOfBranch;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private List<Employee> employees;
 
     public Long getId() {
         return id;
@@ -58,13 +56,6 @@ public class BankBranch {
         this.headOfBranch = headOfBranch;
     }
 
-    public List<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
-    }
 
     @Override
     public String toString() {
@@ -72,7 +63,7 @@ public class BankBranch {
                 "Branch Code=" + id +
                 ", branchName='" + branchName + '\'' +
                 ", address='" + address + '\'' +
-                ", headOfBranch=" + headOfBranch +
+                ", headOfBranch=" + headOfBranch.getFirstName() + " " + headOfBranch.getLastName() +
                 '}';
     }
 

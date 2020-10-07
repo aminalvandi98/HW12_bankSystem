@@ -1,15 +1,14 @@
 package controller.ui;
 
-import controller.menu.MainMenu;
+import controller.controller.MainController;
 
-import java.text.ParseException;
 import java.util.Scanner;
 
 public class MainUI {
-    private MainMenu mainMenu;
+    private MainController mainMenu;
 
     public MainUI() {
-        mainMenu = new MainMenu();
+        mainMenu = new MainController();
     }
 
     public void firstPage() throws Exception {
